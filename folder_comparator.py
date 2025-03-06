@@ -1,4 +1,5 @@
 import os  
+import time
 
 def compare_directories(dir1, dir2, output_file):
     if not os.path.exists(dir1):
@@ -39,7 +40,11 @@ def main():
     
     print(f"Results will be saved to {output_file}")
 
+    start_time = time.time()  # Start timing
     compare_directories(dir1, dir2, output_file)
+    end_time = time.time()  # End timing
+
+    print(f"Comparison completed in {end_time - start_time:.4f} seconds.")  # Print elapsed time
 
     input("Press Enter to exit...")
 
