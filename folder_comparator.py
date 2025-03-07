@@ -35,6 +35,9 @@ def main():
     dir1 = input("Enter the first directory path: ").strip().strip('"')
     dir2 = input("Enter the second directory path: ").strip().strip('"')
 
+    dir1 = os.path.abspath(dir1)  # Convert to absolute path
+    dir2 = os.path.abspath(dir2)  # Convert to absolute path
+
     current_directory = os.getcwd()
     output_file = os.path.join(current_directory, "comparison_results.txt")
     
