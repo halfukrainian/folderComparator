@@ -1,5 +1,8 @@
-import os  
+import os
 import time
+
+def clean_path(path):
+    return os.path.abspath(path.strip().strip('"').strip("'"))
 
 def compare_directories(dir1, dir2, output_file):
     if not os.path.exists(dir1):
@@ -32,22 +35,25 @@ def compare_directories(dir1, dir2, output_file):
     print(f"Comparison completed. Results saved in: {output_file}")
 
 def main():
-    dir1 = input("Enter the first directory path: ").strip().strip('"')
-    dir2 = input("Enter the second directory path: ").strip().strip('"')
+    print("\U0001F4C2 Drag and drop the first directory into this terminal and press Enter:")
+    dir1 = clean_path(input().strip())
 
-    dir1 = os.path.abspath(dir1)  # Convert to absolute path
-    dir2 = os.path.abspath(dir2)  # Convert to absolute path
+    print("\U0001F4C2 Drag and drop the second directory into this terminal and press Enter:")
+    dir2 = clean_path(input().strip())
+
+    dir1 = os.path.abspath(dir1)
+    dir2 = os.path.abspath(dir2)
 
     current_directory = os.getcwd()
     output_file = os.path.join(current_directory, "comparison_results.txt")
     
     print(f"Results will be saved to {output_file}")
 
-    start_time = time.time()  # Start timing
+    start_time = time.time()
     compare_directories(dir1, dir2, output_file)
-    end_time = time.time()  # End timing
+    end_time = time.time()
 
-    print(f"Comparison completed in {end_time - start_time:.4f} seconds.")  # Print elapsed time
+    print(f"Comparison completed in {end_time - start_time:.4f} seconds.")
 
     input("Press Enter to exit...")
 
