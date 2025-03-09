@@ -2,9 +2,11 @@ import os
 import time
 
 def clean_path(path):
+    #cleans format for the path
     return os.path.abspath(path.strip().strip('"').strip("'"))
 
 def compare_directories(dir1, dir2, output_file):
+    #check if both directories exist
     if not os.path.exists(dir1):
         print(f"Error: The directory '{dir1}' does not exist.")
         return
@@ -40,7 +42,8 @@ def main():
 
     print("\U0001F4C2 Drag and drop the second directory into this terminal and press Enter:")
     dir2 = clean_path(input().strip())
-
+    
+    #get absolute paths
     dir1 = os.path.abspath(dir1)
     dir2 = os.path.abspath(dir2)
 
@@ -49,6 +52,7 @@ def main():
     
     print(f"Results will be saved to {output_file}")
 
+    #measures execution time
     start_time = time.time()
     compare_directories(dir1, dir2, output_file)
     end_time = time.time()
