@@ -21,6 +21,7 @@ def compare_directories(dir1, dir2, output_file):
     only_in_dir1 = files_dir1 - files_dir2
     only_in_dir2 = files_dir2 - files_dir1
 
+    # Write differences to the output file
     with open(output_file, 'w', encoding='utf-8') as f:
         if not only_in_dir1 and not only_in_dir2:
             f.write("The directories are the same. No differences found.\n")
