@@ -1,5 +1,6 @@
-I tend to backup my files a lot and sometimes it’s hard to tell what’s different.
-So, I wrote this little script to compare two directories and list out the files that don’t match.
-It uses common file comparison methods, so it’s nothing groundbreaking, but it gets the job done.
+A simple Python script to compare two directories and list the files that exist in one but not the other. The results are saved in comparison_results.txt.
 
-@Rendekendo stated that this README is a 'heartfelt' story
+Features
+- Identifies files unique to each directory
+- Outputs differences in a structured format
+- Simple drag-and-drop input for ease of use
